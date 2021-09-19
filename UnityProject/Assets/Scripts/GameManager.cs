@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
 
     private float nextSpawnTime;
 
+    private List<GameObject> managedObjects;
+
     void Start()
     {
-        nextSpawnTime = Time.time;        
+        nextSpawnTime = Time.time;   
+        managedObjects = new List<GameObject>{};     
     }
 
     void Update()
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
         if (ShouldSpawn()){
             Spawn();
         }
+        DeleteFallenObjects();
     }
 
     private bool ShouldSpawn(){
@@ -47,5 +51,18 @@ public class GameManager : MonoBehaviour
         var scale = size * 100;
         newGameObject.GetComponent<Transform>().localScale = new Vector3(scale, scale, scale);
         newGameObject.GetComponent<Rigidbody>().mass = size * 100;
+
+        managedObjects.Add(newGameObject);
     }
+
+    private void DeleteFallenObjects(){
+        for(int i = managedObjects.Count - 1; i >= 0; i--){
+            var obj = managedObjects[i];
+            if(obj.transform.position.y < -10){
+                managedObjects.RemoveAt(i);
+                Destroy(obj, 3);
+            }
+        }
+    }
+
 }
