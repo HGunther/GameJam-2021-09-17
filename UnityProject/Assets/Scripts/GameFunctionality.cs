@@ -11,10 +11,12 @@ public class GameFunctionality : MonoBehaviour
 
     public float gameTime = 0.0f;
     public Text timeText;
+    public Text gameOverText;
 
     void Start()
     {
         earthIsFallen = false;
+        gameOverText.enabled = false;
     }
 
     void Update()
@@ -30,7 +32,9 @@ public class GameFunctionality : MonoBehaviour
         }
         else{
             // freeze game here
-            timeText.text = gameTime.ToString("00:00") + "\nEARTH HAS FALLEN\nPress Esc to return to the main menu.";
+            timeText.text = gameTime.ToString("00:00");
+            gameOverText.text = "EARTH HAS FALLEN\nPress Esc to return to the main menu.";
+            gameOverText.enabled = true;
         }
     }
 
