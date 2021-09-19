@@ -30,7 +30,9 @@ public class GameFunctionality : MonoBehaviour
         }
         else{
             // freeze game here
-            timeText.text = gameTime.ToString("00:00") + "\nEARTH HAS FALLEN";
+            timeText.text = gameTime.ToString("00:00") + "\nEARTH HAS FALLEN\nPress Esc to return to the main menu.";
         }
     }
+
+    
 }

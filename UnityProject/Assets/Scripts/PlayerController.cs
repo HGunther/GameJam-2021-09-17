@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnInputRotatePlane(InputAction.CallbackContext context){
         m_rotationInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnReturnToStartMenuPressed(InputAction.CallbackContext context){
+        var returnToStartPressed = context.ReadValue<float>();
+        if(returnToStartPressed > 0.0f)
+           SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     void Update()

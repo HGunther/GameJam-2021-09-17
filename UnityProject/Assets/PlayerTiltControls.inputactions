@@ -12,6 +12,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ReturnToStartMenu",
+                    "type": "Button",
+                    "id": "6db13547-f964-4981-9ee2-e51ebc87a773",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -124,6 +132,17 @@
                     "action": "InputRotatePlane",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "30a8ea7e-2e6a-4215-ab46-e72f8503729e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ReturnToStartMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
