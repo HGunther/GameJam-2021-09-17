@@ -7,18 +7,16 @@ public class GameFunctionality : MonoBehaviour
 {
     public float fallDistance = -10.0f;
     public bool earthIsFallen;
-    public GameObject earth = GameObject.Find("Earth");
+    public GameObject earth;
 
     public float gameTime = 0.0f;
     public Text timeText;
 
-    // Start is called before the first frame update
     void Start()
     {
         earthIsFallen = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(earth.transform.position.y <= fallDistance){
