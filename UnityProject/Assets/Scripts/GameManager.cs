@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Spawn(){
         nextSpawnTime += spawnDelayS;
+        spawnDelayS *= 0.75f;
+        spawnDelayS = Mathf.Max(spawnDelayS, 0.4f);
 
         var numPrefabs = prefabs.Count;
         GameObject prefab = prefabs[Random.Range(0, numPrefabs - 1)];
